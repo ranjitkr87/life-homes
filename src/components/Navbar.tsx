@@ -208,16 +208,6 @@ export function Navbar({
 
         {/* Right CTA Actions */}
         <div className="hidden lg:flex items-center gap-3">
-          {/* Quick Estimator Button */}
-          <button
-            onClick={onOpenEstimator}
-            className="px-3.5 py-2 rounded-lg bg-[#181b20] hover:bg-[#222730] border border-[#d4af37]/30 text-xs text-[#d4af37] flex items-center gap-1.5 transition-colors"
-            title="Calculate build cost & timeline"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Cost Estimator</span>
-          </button>
-
           {/* Private Consultation CTA */}
           <button
             onClick={() => handleNav("contact")}

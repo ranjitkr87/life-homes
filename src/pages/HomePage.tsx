@@ -1,9 +1,21 @@
-import { useState } from 'react';
-import { ArrowRight, Sparkles, Shield, Compass, Layers, CheckCircle2, ChevronRight, Eye, Building2, Paintbrush, Hammer } from 'lucide-react';
-import { PageId, Project } from '../types';
-import { projectsData } from '../data/projectsData';
-import { clientTestimonials } from '../data/companyData';
-import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+import { useState } from "react";
+import {
+  ArrowRight,
+  Sparkles,
+  Shield,
+  Compass,
+  Layers,
+  CheckCircle2,
+  ChevronRight,
+  Eye,
+  Building2,
+  Paintbrush,
+  Hammer,
+} from "lucide-react";
+import { PageId, Project } from "../types";
+import { projectsData } from "../data/projectsData";
+import { clientTestimonials } from "../data/companyData";
+import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
@@ -11,12 +23,19 @@ interface HomePageProps {
   onSelectProject: (project: Project) => void;
 }
 
-export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomePageProps) {
-  const [activeTab, setActiveTab] = useState<'all' | 'residential' | 'interior' | 'renovation'>('all');
+export function HomePage({
+  onNavigate,
+  onOpenEstimator,
+  onSelectProject,
+}: HomePageProps) {
+  const [activeTab, setActiveTab] = useState<
+    "all" | "residential" | "interior" | "renovation"
+  >("all");
 
-  const filteredProjects = activeTab === 'all'
-    ? projectsData.slice(0, 4)
-    : projectsData.filter(p => p.category === activeTab).slice(0, 4);
+  const filteredProjects =
+    activeTab === "all"
+      ? projectsData.slice(0, 4)
+      : projectsData.filter((p) => p.category === activeTab).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-[#0b0c0e] text-[#e5e0d8]">
@@ -36,29 +55,24 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
         {/* Hero Narrative Container */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
           {/* Unboxed editorial kicker */}
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#d4af37] font-semibold mb-6">
-            <span>Monumental Civil Construction</span>
-            <span aria-hidden="true">·</span>
-            <span>Bespoke Architecture</span>
-            <span aria-hidden="true">·</span>
-            <span>Turnkey Estates</span>
-          </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-white tracking-tight leading-[1.12]">
-            Engineering Permanence.{' '}
+            Engineering Permanence.{" "}
             <span className="block text-gold-gradient italic font-normal mt-2">
               Mastering the Architecture of Form.
             </span>
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-stone-300 max-w-2xl mx-auto font-sans leading-relaxed font-light">
-            Life Homes &amp; Developers builds sovereign private residences, haute couture interior architecture, and landmark restorations for patrons who demand absolute civil precision.
+            Life Homes &amp; Developers builds sovereign private residences,
+            haute couture interior architecture, and landmark restorations for
+            patrons who demand absolute civil precision.
           </p>
 
           {/* Primary Action Suite */}
           <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={() => onNavigate("contact")}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#e6ca85] to-[#c5a059] text-[#0b0c0e] font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl flex items-center justify-center gap-2"
             >
               <span>Schedule Private Consultation</span>
@@ -66,38 +80,46 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
             </button>
 
             <button
-              onClick={() => onNavigate('gallery')}
+              onClick={() => onNavigate("gallery")}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#121417]/80 hover:bg-[#181b20] border border-[#d4af37]/30 text-white font-semibold text-xs uppercase tracking-widest transition-all backdrop-blur-md flex items-center justify-center gap-2"
             >
               <span>Explore Portfolio</span>
-            </button>
-
-            <button
-              onClick={onOpenEstimator}
-              className="w-full sm:w-auto px-5 py-4 rounded-xl bg-transparent hover:bg-white/5 border border-white/15 text-[#d4af37] text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Investment Appraisal</span>
             </button>
           </div>
 
           {/* Stats Ribbon */}
           <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
             <div>
-              <p className="text-2xl sm:text-3xl font-serif font-bold text-white">$420M+</p>
-              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">Delivered Value</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-white">
+                $420M+
+              </p>
+              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">
+                Delivered Value
+              </p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-serif font-bold text-[#d4af37]">±1.5mm</p>
-              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">Swiss Laser Tolerance</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-[#d4af37]">
+                ±1.5mm
+              </p>
+              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">
+                Swiss Laser Tolerance
+              </p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-serif font-bold text-white">94 Estates</p>
-              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">Built &amp; Restored</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-white">
+                94 Estates
+              </p>
+              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">
+                Built &amp; Restored
+              </p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-serif font-bold text-[#d4af37]">100%</p>
-              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">Structural Warranty</p>
+              <p className="text-2xl sm:text-3xl font-serif font-bold text-[#d4af37]">
+                100%
+              </p>
+              <p className="text-xs text-[#a0a5ad] uppercase tracking-wider mt-0.5">
+                Structural Warranty
+              </p>
             </div>
           </div>
         </div>
@@ -115,15 +137,22 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 Where Civil Rigor Meets Uncompromising Aesthetics.
               </h2>
               <p className="text-stone-300 text-sm leading-relaxed font-light">
-                Most luxury builders focus solely on what is visible: the marble surface, the brass tapware, the paint sheen. At Life Homes &amp; Developers, our legacy begins in the unseen geology: 70 feet beneath the surface where post-tensioned bedrock micro-piles absorb seismic resonance.
+                Most luxury builders focus solely on what is visible: the marble
+                surface, the brass tapware, the paint sheen. At Life Homes &amp;
+                Developers, our legacy begins in the unseen geology: 70 feet
+                beneath the surface where post-tensioned bedrock micro-piles
+                absorb seismic resonance.
               </p>
               <p className="text-stone-400 text-sm leading-relaxed">
-                By synthesizing commercial high-rise civil engineering with the artisanal intimacy of private luxury residential architecture, we ensure your family compound stands unyielding for the next two centuries.
+                By synthesizing commercial high-rise civil engineering with the
+                artisanal intimacy of private luxury residential architecture,
+                we ensure your family compound stands unyielding for the next
+                two centuries.
               </p>
 
               <div className="pt-2">
                 <button
-                  onClick={() => onNavigate('about')}
+                  onClick={() => onNavigate("about")}
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#d4af37] hover:text-[#f7ecd0] transition-colors"
                 >
                   <span>Learn About Our Heritage &amp; Engineers</span>
@@ -137,9 +166,13 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 <div className="w-10 h-10 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                   <Shield className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-base font-bold text-white">Geotechnical Foundations</h3>
+                <h3 className="font-serif text-base font-bold text-white">
+                  Geotechnical Foundations
+                </h3>
                 <p className="text-xs text-stone-400 leading-relaxed">
-                  Deep sonic soil boring, laser-anchored micro-piles, and crystalline self-healing waterproof tanking resisting all hydrostatic pressure.
+                  Deep sonic soil boring, laser-anchored micro-piles, and
+                  crystalline self-healing waterproof tanking resisting all
+                  hydrostatic pressure.
                 </p>
               </div>
 
@@ -147,9 +180,13 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 <div className="w-10 h-10 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                   <Compass className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-base font-bold text-white">Bespoke Structural Spans</h3>
+                <h3 className="font-serif text-base font-bold text-white">
+                  Bespoke Structural Spans
+                </h3>
                 <p className="text-xs text-stone-400 leading-relaxed">
-                  Post-tensioned cantilevered terraces reaching up to 40 feet without column supports, framing unbroken ocean and skyline vistas.
+                  Post-tensioned cantilevered terraces reaching up to 40 feet
+                  without column supports, framing unbroken ocean and skyline
+                  vistas.
                 </p>
               </div>
 
@@ -157,9 +194,13 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 <div className="w-10 h-10 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                   <Layers className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-base font-bold text-white">Acoustic Isolation (STC 65+)</h3>
+                <h3 className="font-serif text-base font-bold text-white">
+                  Acoustic Isolation (STC 65+)
+                </h3>
                 <p className="text-xs text-stone-400 leading-relaxed">
-                  Decoupled spring-loaded floating floor slabs and asymmetric triple glazing silencing the exterior world into absolute sanctuary.
+                  Decoupled spring-loaded floating floor slabs and asymmetric
+                  triple glazing silencing the exterior world into absolute
+                  sanctuary.
                 </p>
               </div>
 
@@ -167,9 +208,13 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 <div className="w-10 h-10 rounded-lg bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-base font-bold text-white">Direct Italian Quarry Curation</h3>
+                <h3 className="font-serif text-base font-bold text-white">
+                  Direct Italian Quarry Curation
+                </h3>
                 <p className="text-xs text-stone-400 leading-relaxed">
-                  Sourcing raw blocks directly at Carrara and Verona quarries, water-jet slicing to 0.2mm tolerance for seamless book-matching.
+                  Sourcing raw blocks directly at Carrara and Verona quarries,
+                  water-jet slicing to 0.2mm tolerance for seamless
+                  book-matching.
                 </p>
               </div>
             </div>
@@ -188,7 +233,8 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
               Conceived with Vision. Executed with Precision.
             </h2>
             <p className="text-stone-400 text-sm">
-              Explore our three core avenues of civil construction, interior architecture, and legacy estate rejuvenation.
+              Explore our three core avenues of civil construction, interior
+              architecture, and legacy estate rejuvenation.
             </p>
           </div>
 
@@ -208,12 +254,16 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">Discipline 01</span>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">
+                    Discipline 01
+                  </span>
                   <h3 className="text-xl font-serif font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">
                     Residential Construction
                   </h3>
                   <p className="text-xs text-stone-400 mt-2 leading-relaxed">
-                    Ground-up bespoke mansions, cantilevered cliffside estates, and private multi-acre residential compounds engineered with zero structural tolerance.
+                    Ground-up bespoke mansions, cantilevered cliffside estates,
+                    and private multi-acre residential compounds engineered with
+                    zero structural tolerance.
                   </p>
                   <ul className="mt-4 space-y-1.5 text-xs text-stone-300">
                     <li className="flex items-center gap-2">
@@ -231,7 +281,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                   </ul>
                 </div>
                 <button
-                  onClick={() => onNavigate('services-residential')}
+                  onClick={() => onNavigate("services-residential")}
                   className="pt-4 border-t border-[#282e38] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#d4af37] hover:text-white transition-colors"
                 >
                   <span>Explore Residential Specs</span>
@@ -255,12 +305,16 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">Discipline 02</span>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">
+                    Discipline 02
+                  </span>
                   <h3 className="text-xl font-serif font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">
                     Interior Design &amp; Haute Architecture
                   </h3>
                   <p className="text-xs text-stone-400 mt-2 leading-relaxed">
-                    Custom Italian joinery, book-matched Calacatta slabs, concealed architectural lighting, and bespoke furnishings tailored for private patrons.
+                    Custom Italian joinery, book-matched Calacatta slabs,
+                    concealed architectural lighting, and bespoke furnishings
+                    tailored for private patrons.
                   </p>
                   <ul className="mt-4 space-y-1.5 text-xs text-stone-300">
                     <li className="flex items-center gap-2">
@@ -278,7 +332,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                   </ul>
                 </div>
                 <button
-                  onClick={() => onNavigate('services-interior')}
+                  onClick={() => onNavigate("services-interior")}
                   className="pt-4 border-t border-[#282e38] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#d4af37] hover:text-white transition-colors"
                 >
                   <span>Explore Interior Haute</span>
@@ -302,12 +356,16 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">Discipline 03</span>
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#d4af37]">
+                    Discipline 03
+                  </span>
                   <h3 className="text-xl font-serif font-bold text-white mt-1 group-hover:text-[#d4af37] transition-colors">
                     Renovation &amp; Restoration
                   </h3>
                   <p className="text-xs text-stone-400 mt-2 leading-relaxed">
-                    Surgically modernizing historic landmark manors and high-rise penthouses with concealed steel moment frames and geothermal energy.
+                    Surgically modernizing historic landmark manors and
+                    high-rise penthouses with concealed steel moment frames and
+                    geothermal energy.
                   </p>
                   <ul className="mt-4 space-y-1.5 text-xs text-stone-300">
                     <li className="flex items-center gap-2">
@@ -325,7 +383,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                   </ul>
                 </div>
                 <button
-                  onClick={() => onNavigate('services-renovation')}
+                  onClick={() => onNavigate("services-renovation")}
                   className="pt-4 border-t border-[#282e38] flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#d4af37] hover:text-white transition-colors"
                 >
                   <span>Explore Renovation Specs</span>
@@ -353,41 +411,41 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
             {/* Interactive Filter Tabs (Buttons with click handlers per frontend constitution) */}
             <div className="flex items-center gap-1.5 p-1 bg-[#121417] rounded-xl border border-[#282e38]">
               <button
-                onClick={() => setActiveTab('all')}
+                onClick={() => setActiveTab("all")}
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                  activeTab === 'all'
-                    ? 'bg-[#d4af37] text-[#0b0c0e] font-semibold'
-                    : 'text-stone-400 hover:text-white'
+                  activeTab === "all"
+                    ? "bg-[#d4af37] text-[#0b0c0e] font-semibold"
+                    : "text-stone-400 hover:text-white"
                 }`}
               >
                 All Works
               </button>
               <button
-                onClick={() => setActiveTab('residential')}
+                onClick={() => setActiveTab("residential")}
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                  activeTab === 'residential'
-                    ? 'bg-[#d4af37] text-[#0b0c0e] font-semibold'
-                    : 'text-stone-400 hover:text-white'
+                  activeTab === "residential"
+                    ? "bg-[#d4af37] text-[#0b0c0e] font-semibold"
+                    : "text-stone-400 hover:text-white"
                 }`}
               >
                 Residential
               </button>
               <button
-                onClick={() => setActiveTab('interior')}
+                onClick={() => setActiveTab("interior")}
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                  activeTab === 'interior'
-                    ? 'bg-[#d4af37] text-[#0b0c0e] font-semibold'
-                    : 'text-stone-400 hover:text-white'
+                  activeTab === "interior"
+                    ? "bg-[#d4af37] text-[#0b0c0e] font-semibold"
+                    : "text-stone-400 hover:text-white"
                 }`}
               >
                 Interiors
               </button>
               <button
-                onClick={() => setActiveTab('renovation')}
+                onClick={() => setActiveTab("renovation")}
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                  activeTab === 'renovation'
-                    ? 'bg-[#d4af37] text-[#0b0c0e] font-semibold'
-                    : 'text-stone-400 hover:text-white'
+                  activeTab === "renovation"
+                    ? "bg-[#d4af37] text-[#0b0c0e] font-semibold"
+                    : "text-stone-400 hover:text-white"
                 }`}
               >
                 Renovations
@@ -397,7 +455,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
 
           {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredProjects.map(proj => (
+            {filteredProjects.map((proj) => (
               <div
                 key={proj.id}
                 onClick={() => onSelectProject(proj)}
@@ -411,7 +469,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  
+
                   {/* Category text kicker (unboxed per constitution) */}
                   <div className="absolute top-4 left-4 text-xs font-medium text-stone-200 bg-black/60 px-2.5 py-1 rounded backdrop-blur-sm border border-white/10">
                     <span>{proj.categoryLabel}</span>
@@ -429,7 +487,9 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                     <h3 className="text-xl font-serif font-bold text-white group-hover:text-[#d4af37] transition-colors">
                       {proj.title}
                     </h3>
-                    <p className="text-xs text-stone-400 mt-1">{proj.subtitle}</p>
+                    <p className="text-xs text-stone-400 mt-1">
+                      {proj.subtitle}
+                    </p>
                     <p className="text-xs text-stone-300 mt-3 line-clamp-2 leading-relaxed font-light">
                       {proj.summary}
                     </p>
@@ -452,7 +512,7 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
 
           <div className="text-center pt-4">
             <button
-              onClick={() => onNavigate('gallery')}
+              onClick={() => onNavigate("gallery")}
               className="px-8 py-3.5 rounded-xl bg-[#121417] hover:bg-[#1a1e24] border border-[#d4af37]/30 text-white text-xs uppercase tracking-widest font-semibold transition-all inline-flex items-center gap-2"
             >
               <span>View Full Architectural Portfolio</span>
@@ -477,25 +537,37 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 Greenwich, CT · 21,500 sq ft · 1928 Landmark Revived
               </p>
               <p className="text-stone-300 text-sm leading-relaxed">
-                Notice the dramatic contrast: from a failing, crumbling 1928 exterior into a structurally fortified estate with geothermal heating, subterranean Roman thermal baths, and zero change to the protected historical footprint.
+                Notice the dramatic contrast: from a failing, crumbling 1928
+                exterior into a structurally fortified estate with geothermal
+                heating, subterranean Roman thermal baths, and zero change to
+                the protected historical footprint.
               </p>
               <div className="space-y-2 text-xs text-stone-400">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Concealed internal steel exoskeleton carrying 100% of roof load</span>
+                  <span>
+                    Concealed internal steel exoskeleton carrying 100% of roof
+                    load
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>Subterranean underpinning adding 3,500 sq ft spa &amp; wine cellar</span>
+                  <span>
+                    Subterranean underpinning adding 3,500 sq ft spa &amp; wine
+                    cellar
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                  <span>72% reduction in estate thermal energy loss via vacuum glazing</span>
+                  <span>
+                    72% reduction in estate thermal energy loss via vacuum
+                    glazing
+                  </span>
                 </div>
               </div>
               <div className="pt-2">
                 <button
-                  onClick={() => onNavigate('services-renovation')}
+                  onClick={() => onNavigate("services-renovation")}
                   className="px-6 py-3 rounded-lg bg-[#181b20] hover:bg-[#222730] border border-[#d4af37]/40 text-[#d4af37] text-xs uppercase tracking-widest font-semibold transition-all inline-flex items-center gap-2"
                 >
                   <span>Read Renovation Methodology</span>
@@ -532,7 +604,10 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                 Calculate Estimated Build Investment &amp; Schedule
               </h3>
               <p className="text-stone-400 text-xs sm:text-sm leading-relaxed">
-                Explore real-time parametric estimation for your private residence, penthouse renovation, or bespoke interior architecture based on square footage, finish tier, and subterranean amenities.
+                Explore real-time parametric estimation for your private
+                residence, penthouse renovation, or bespoke interior
+                architecture based on square footage, finish tier, and
+                subterranean amenities.
               </p>
             </div>
 
@@ -560,12 +635,13 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
               Trusted by Private Estate Owners
             </h2>
             <p className="text-stone-400 text-xs sm:text-sm">
-              All client names and estate identities published under explicit authorization.
+              All client names and estate identities published under explicit
+              authorization.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {clientTestimonials.map(t => (
+            {clientTestimonials.map((t) => (
               <div
                 key={t.id}
                 className="p-8 rounded-2xl bg-[#0b0c0e] border border-[#282e38] flex flex-col justify-between space-y-6 shadow-xl"
@@ -580,9 +656,15 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
                     className="w-10 h-10 rounded-full object-cover border border-[#d4af37]/40"
                   />
                   <div>
-                    <h4 className="text-sm font-semibold text-white">{t.clientName}</h4>
-                    <p className="text-[11px] text-[#d4af37]">{t.estateName} · {t.location}</p>
-                    <p className="text-[10px] text-stone-500">{t.projectType}</p>
+                    <h4 className="text-sm font-semibold text-white">
+                      {t.clientName}
+                    </h4>
+                    <p className="text-[11px] text-[#d4af37]">
+                      {t.estateName} · {t.location}
+                    </p>
+                    <p className="text-[10px] text-stone-500">
+                      {t.projectType}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -601,17 +683,19 @@ export function HomePage({ onNavigate, onOpenEstimator, onSelectProject }: HomeP
             Ready to Build Your Architectural Monument?
           </h2>
           <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light">
-            Our principal civil engineers and master design architects are available for private site evaluations in New York, Los Angeles, Greenwich, and London.
+            Our principal civil engineers and master design architects are
+            available for private site evaluations in New York, Los Angeles,
+            Greenwich, and London.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={() => onNavigate("contact")}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#c5a059] text-[#0b0c0e] font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl"
             >
               Book Confidential Consultation
             </button>
             <button
-              onClick={() => onNavigate('services')}
+              onClick={() => onNavigate("services")}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#181b20] hover:bg-[#222730] border border-[#282e38] text-white font-semibold text-xs uppercase tracking-widest transition-all"
             >
               Review All Services
